@@ -201,6 +201,11 @@ Symbol ZamienNaSymbol(char tmp1)
 
 }
 
+void share(std::shared_ptr<Dzialanie> t)
+{
+    std::shared_ptr<Dzialanie> tmp = t;
+}
+
 void WeryfikujCalosc(Dzialanie  * tmp,Statystyka * Stat)
 {
     Stat->Razem++;
@@ -256,8 +261,12 @@ Stat.WyswietlStat();
 
 int main()
 {
-Statystyka Stat;
-Dzialanie Dz;
+    std::shared_ptr<Dzialanie> s{new Statystyka}
+    v.push_back(std::move (s));
+    std::shared_ptr<Dzialanie> d{new Dzialanie}
+    v.push_back(std::move (d));
+Statystyka s;
+Dzialanie d;
 char ctrlE = '\0';
 bool end=false;
 while(end!=true)
@@ -267,8 +276,8 @@ while(end!=true)
     if(ctrlE!= 5)//!jesli to nie jest ctrl + E( 5 to kod ctrl + E)
     {
        cin.unget();//!to go oddaj, i ten znak zostanie wczytany do dz;
-       cin>>Dz;
-       WeryfikujCalosc(&Dz, & Stat);
+       cin>>d;
+       WeryfikujCalosc(&d, & s);
        cin.ignore(1);//!ten ignore jest po to, gdyż po tym ten cin.get co jest przy ctrE wzial by go do siebie(znaczy sie enter(on tez ma swoj kod).
     }
     else

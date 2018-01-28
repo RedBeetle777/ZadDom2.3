@@ -5,7 +5,12 @@ using namespace std;
 
 void foo()
 {
-  throw range_error("Range error");
+  int a=10;
+  int c=50;
+
+  int* w=new int(100);
+  int *x=nullptr;
+  //  throw range_error("Range error");
 }
 
 int main()
